@@ -1,0 +1,52 @@
+{
+  "login": "ចូលគណនី",
+  "register": "ចុះឈ្មោះ",
+  "footer": {
+    "content": {
+      "content": "មាតិកា",
+      "home": "ទំព័រមុខ",
+      "products": "ផលិតផល",
+      "information": "ព័ត៏មាន",
+      "pricing": "តម្លៃ",
+      "legal": "ច្បាប់",
+      "terms": "ល័ក្ខខ័ណ្ឌ",
+      "support": "ជំនួយ",
+      "faq": "សំណួរញឹកញាប់",
+      "socialMedia": "បណ្តាញសង្គម"
+    },
+    "information": {
+      "information": "ព័ត៌មាន",
+      "pricing": "តម្លៃ",
+      "products": "ផលិតផល",
+      "api": "API",
+      "job": "ការងារ",
+      "sell_your_content": "លក់មាតិការបស់អ្នក",
+      "tola_post_guidelines": "គោលការណ៍ណែនាំ Tola Post",
+    },
+    "legal": {
+      "legal": "ផ្លូវច្បាប់",
+      "term_of_use": "រយៈពេលប្រើប្រាស់",
+      "license_agreement": "កិច្ចព្រមព្រៀងអាជ្ញាប័ណ្ណ",
+      "privacy_policy": "គោលការណ៍ឯកជនភាព",
+      "copyright_information": "ព័ត៌មានរក្សាសិទ្ធិ",
+      "cookies_policy": "គោលការណ៍ Cookies",
+      "cookies_settings": "ការកំណត់ Cookies",
+    },
+    "suppourt": {
+      "suppourt": "គាំទ្រ",
+      "faq": "សំណួរគេសួរញឹកញាប់ិ៍",
+      "search_guide": "មគ្គុទ្ទេសក៍ស្វែងរក",
+      "contact": "ទំនាក់ទំនង",
+    },
+    "social_media": {
+      "social_media": "ប្រព័ន្ធផ្សព្វផ្សាយសង្គម",
+      "get": "ទទួលបានទ្រព្យសម្បត្តិផ្តាច់មុខដែលផ្ញើដោយផ្ទាល់ទៅប្រអប់សំបុត្ររបស់អ្នក។",
+    },
+    "copyright": {
+      "copyright": "រក្សាសិទ្ធិ",
+      "tola_post": "ទន្លេប៉ុស្តិ៍",
+      "all": "ទាំងអស់រក្សាសិទ្ធិ។",
+    }
+  }
+
+}

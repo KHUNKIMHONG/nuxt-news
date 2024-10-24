@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  @font-face {
+    font-family: 'Moulpali';
+    src: url('/assets/fonts/Moulpali/Moulpali-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Exo_2';
+    src: url('/assets/fonts/Exo_2/static/Exo2-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Heading styles */
+  h1 {
+    @apply text-2xl font-bold text-slate-900 dark:text-white;
+  }
+  h2 {
+    @apply text-xl font-semibold text-slate-900 dark:text-white;
+  }
+  h3 {
+    @apply text-lg font-semibold text-slate-900 dark:text-white;
+  }
+  h4 {
+    @apply text-base font-medium text-slate-900 dark:text-white;
+  }
+  h5 {
+    @apply text-sm font-medium text-slate-900 dark:text-white;
+  }
+  h6 {
+    @apply text-xs font-medium text-slate-900 dark:text-white;
+  }
+
+  /* Responsive utilities for headings */
+  @screen sm {
+    h1 { @apply text-3xl; }
+    h2 { @apply text-2xl; }
+    h3 { @apply text-xl; }
+    h4 { @apply text-lg; }
+    h5 { @apply text-base; }
+    h6 { @apply text-sm; }
+  }
+
+  @screen md {
+    h1 { @apply text-4xl; }
+    h2 { @apply text-3xl; }
+    h3 { @apply text-2xl; }
+    h4 { @apply text-xl; }
+    h5 { @apply text-lg; }
+    h6 { @apply text-base; }
+  }
+
+  /* Global text and layout for responsive devices */
+  p {
+    @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;
+  }
+
+  @screen sm {
+    p { @apply text-base; }
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  ul, ol {
+    @apply pl-4;
+  }
+
+  @screen sm {
+    ul, ol { @apply pl-5; }
+  }
+
+  body {
+    @apply bg-white dark:bg-slate-800 font-enlish;
+  }
+
+  button {
+    @apply px-3 py-2;
+  }  
+
+  @screen sm {
+    button { @apply px-4; }
+  }
+
+  /* Dropdown Menu Styling */
+.dropdown-menu {
+  @apply absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-30;
+}
+
+/* Dropdown Menu Link Styling */
+.dropdown-link {
+  @apply block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 no-underline rounded-md transition-colors duration-200;
+}
+.nav-link {
+  @apply no-underline transition duration-200 px-4 py-2 rounded-md;
+}
+
+/* Custom Scrollbar Styles for Horizontal Scrolling */
+.scrollable {
+  overflow-y: auto; /* Enable horizontal scrolling */
+}
+
+/* For Firefox */
+.scrollable {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: red transparent; /* Thumb color and track color */
+}
+
+/* For WebKit browsers */
+.scrollable::-webkit-scrollbar {
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: red; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Round edges for the thumb */
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: transparent; /* Background color of the track */
+}
+
+}
+
+

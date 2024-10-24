@@ -1,0 +1,51 @@
+{
+  "login": "Login",
+  "register": "Register",
+  "footer": {
+    "content": {
+      "content": "Content",
+      "home": "Home",
+      "products": "Products",
+      "information": "INFORMATION",
+      "pricing": "Pricing",
+      "legal": "LEGAL",
+      "terms": "Terms of use",
+      "support": "SUPPORT",
+      "faq": "FAQ",
+      "socialMedia": "SOCIAL MEDIA"
+    },
+    "information": {
+      "information": "INFORMATION",
+      "pricing": "Pricing",
+      "products": "products",
+      "api": "API",
+      "job": "Jobs",
+      "sell_your_content": "Sell your content",
+      "tola_post_guidelines": "Tola Post guidelines",
+    },
+    "legal": {
+      "legal": "LEGAL",
+      "term_of_use": "Term of use",
+      "license_agreement": "License agreement",
+      "privacy_policy": "Privacy policy",
+      "copyright_information": "Copyright information",
+      "cookies_policy": "Cookies policy",
+      "cookies_settings": "Cookies Settings",
+    },
+    "suppourt": {
+      "suppourt": "Suppourt",
+      "faq": "FAQ",
+      "search_guide": "Search guide",
+      "contact": "Contact",
+    },
+    "social_media": {
+      "social_media": "SOCIAL MEDIA",
+      "get": "Get exclusive assets sent straight to your inbox.",
+    },
+    "copyright": {
+      "copyright": "Copyright",
+      "tola_post": "Tola Post",
+      "all": "All rights reserved.",
+    },
+  }
+}
