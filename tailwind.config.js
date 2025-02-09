@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -18,8 +18,8 @@ module.exports = {
         xl: '1440px',
       },
       fontFamily: {
-        exo: ['Exo_2', 'sans-serif'],
-        enlish: ['Montserrat', 'sans-serif'], // Default English font
+        Roboto_Slab: ['Roboto_Slab', 'Battambang'],
+        Battambang: ['Battambang', 'sans-serif'], // Default English font
         khmer: ['Moulpali', 'sans-serif'], // Add this line
       },
       extend: {

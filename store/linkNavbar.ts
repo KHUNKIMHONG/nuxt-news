@@ -15,26 +15,28 @@ const linkNavbar: NavbarLink[] = [
         path: link.home 
     },
     {
-        name_en: 'ABOUT',
-        name_kh: 'អំពីការ', // changed to name_kh
-        children: [
-            { name_en: 'Development', name_kh: 'អភិវឌ្ឍន៍វេបសាយ', path: link.about },
-            { name_en: 'Mission', name_kh: 'ភារកិច្ច', path: '/about/mission' },
-        ],
+        name_en: 'PROFILE',
+        name_kh: 'ប្រវត្ដិរូប', // changed to name_kh
+        path: link.about 
     },
     {
-        name_en: 'SERVICES',
-        name_kh: 'សេវាកម្ម', // changed to name_kh
+        name_en: 'LESSONS',
+        name_kh: 'មេរៀន', // changed to name_kh
         children: [
-            { name_en: 'Web Development', name_kh: 'អភិវឌ្ឍន៍វេបសាយ', path: '/services/web-development' },
-            { name_en: 'SEO', name_kh: 'SEO', path: '/services/seo' },
-            { name_en: 'Marketing', name_kh: 'ទីផ្សារ', path: '/services/marketing' },
+            { name_en: 'Code Compass', name_kh: 'ត្រីវិស័យ Code', path: link.codes },
+            { name_en: 'SEO', name_kh: 'SEO', path: '/about' },
+            { name_en: 'Marketing', name_kh: 'ទីផ្សារ', path: '/about' },
         ],
     },
     { 
         name_en: 'CONTACT', 
         name_kh: 'ទំនាក់ទំនង', // changed to name_kh
-        path: '/contact' 
+        path: link.contact  
+    },
+    { 
+        name_en: 'FAQ', 
+        name_kh: 'សំណួរគេសួរញឹកញាប់', // changed to name_kh
+        path: link.faq 
     },
 ];
 

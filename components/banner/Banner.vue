@@ -1,13 +1,13 @@
 <template>
   <section
-    class="relative w-full h-[80vh] overflow-hidden bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 animate-gradient py-16 px-4 md:px-12 lg:px-24">
+    class="relative w-full h-[70vh] overflow-hidden bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-700 py-16 px-4 md:px-12 lg:px-24">
     <!-- Slide Wrapper -->
     <div class="container mx-auto">
       <div class="flex justify-end">
-        <img src="/images/star-blue.png" alt="Logo" class="logo-image" loading="lazy" />
+        <img src="/images/green-star.png" alt="Logo" class="logo-image" loading="lazy" />
       </div>
       <div
-        class="absolute bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 w-96 h-96 md:w-[15rem] md:h-[15rem] rounded-full -right-20 -top-1">
+        class="absolute bg-gradient-to-r from-yellow-500 via-teal-600 to-emerald-700 animate-gradient w-96 h-96 md:w-[15rem] md:h-[15rem] rounded-full -right-20 -top-1">
       </div>
 
       <div class="slide flex w-full h-full mr-auto transition-opacity duration-700 ease-in-out"
@@ -33,12 +33,12 @@
           <div class="flex flex-col md:flex-row items-start justify-start space-y-4 md:space-y-0 md:space-x-4 mt-4">
             <!-- Watch Video Button -->
             <button v-if="!isVideoVisible" @click="showVideo"
-              class="bg-yellow-500 text-black font-semibold py-3 px-8 rounded-lg hover:bg-yellow-600 hover:scale-105 transition duration-300">
+              class="bg-yellow-500 text-black font-semibold shadow-blue-500/50  py-3 px-8 rounded-lg hover:bg-yellow-600 hover:scale-105 transition duration-300">
               Watch Video
             </button>
             <!-- Learn More Button -->
             <NuxtLink :to="slide.linkUrl"
-              class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 hover:scale-105 transition duration-300">
+              class="bg-emerald-600 text-white font-semibold shadow-blue-500/50 py-3 px-8 rounded-lg hover:bg-emerald-700 hover:scale-105 transition duration-300">
               Learn More
             </NuxtLink>
           </div>
@@ -78,11 +78,11 @@
         &#10095;
       </button>
 
-      <!-- Pagination Dots -->
-      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
+      <!-- Updated Pagination Dots with z-index and class -->
+      <div class="pagination-dots absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
         <span v-for="(slide, index) in localizedSlides" :key="'line' + index" @click="goToSlide(index)" :class="[
-          'w-6 h-1 md:w-8 md:h-1 rounded cursor-pointer transition-transform duration-300',
-          currentSlide === index ? 'bg-blue-600 scale-x-125' : 'bg-gray-500',
+          'w-6 h-1 rounded-full cursor-pointer transition-transform duration-300 transform',
+          currentSlide === index ? 'bg-yellow-700 scale-x-125' : 'bg-gray-500 scale-100'
         ]"></span>
       </div>
     </div>
@@ -93,7 +93,6 @@
 import { slides } from "~/store/slider_titles.ts";
 
 export default {
-  name: "BannerSlider",
   data() {
     return {
       slides,
@@ -120,10 +119,8 @@ export default {
   },
   methods: {
     startSlideShow() {
+      this.stopSlideShow(); // Clear any existing interval
       this.intervalId = setInterval(this.nextSlide, 10000);
-    },
-    stopSlideShow() {
-      clearInterval(this.intervalId);
     },
     showVideo() {
       this.isVideoVisible = true;
@@ -134,24 +131,22 @@ export default {
       this.startSlideShow(); // Restart the slideshow when the video is hidden
     },
     nextSlide() {
-      // Prevent moving to the next slide if the video is currently visible
       if (this.isVideoVisible) return;
-
       this.currentSlide = (this.currentSlide + 1) % this.localizedSlides.length;
     },
     prevSlide() {
-      // Prevent moving to the previous slide if the video is currently visible
       if (this.isVideoVisible) return;
-
       this.currentSlide =
         (this.currentSlide - 1 + this.localizedSlides.length) %
         this.localizedSlides.length;
     },
     goToSlide(index) {
-      // Prevent switching slides if the video is currently visible
       if (this.isVideoVisible) return;
-
       this.currentSlide = index;
+      this.startSlideShow();
+    },
+    stopSlideShow() {
+      clearInterval(this.intervalId);
     },
   },
   beforeDestroy() {

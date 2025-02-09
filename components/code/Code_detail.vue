@@ -1,142 +1,202 @@
 <template>
-    <section class="py-16 px-4 md:px-12 lg:px-24">
-        <div class="container mx-auto flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8">
-            <!-- Main Content Area -->
-            <div v-if="codeList" class="w-full lg:w-3/4">
-                <div
-                    class="bg-white shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                    <!-- codeList Image -->
-                    <img :src="codeList.image" :alt="codeList.title[$i18n.locale]"
-                        class="w-full h-64 md:h-96 object-cover transition-transform duration-300 transform hover:scale-110"
-                        loading="lazy" />
+  <section
+    class="py-16 px-4 md:px-12 lg:px-24 bg-gray-50 dark:bg-slate-900 transition-all"
+  >
+    <div
+      class="container mx-auto flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8"
+    >
+      <!-- Main Content Area -->
+      <div v-if="codeList" class="w-full lg:w-3/4">
+        <div
+          class="bg-white dark:bg-slate-800 border-solid border-2 border-emerald-100 shadow-md rounded-lg overflow-hidden transition-transform duration-300"
+        >
+          <img
+            :src="codeList.image"
+            :alt="codeList.title[$i18n.locale]"
+            class="w-full h-64 md:h-96 object-cover rounded-t-lg transition-transform duration-300 transform hover:scale-110"
+            loading="lazy"
+          />
+          <div class="p-6">
+            <h1
+              class="text-1xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100"
+            >
+              {{ codeList.title[$i18n.locale] }}
+            </h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
+              {{ codeList.date }}
+            </p>
+            <span
+              class="bg-red-500 text-white text-xs font-semibold py-1 px-2 rounded mb-4 inline-block"
+            >
+              {{ codeList.category[$i18n.locale] }}
+            </span>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              {{ codeList.description[$i18n.locale] }}
+            </p>
 
-                    <div class="p-6">
-                        <!-- codeList Title -->
-                        <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                            {{ codeList.title[$i18n.locale] }}
-                        </h1>
+            <!-- Flex container for Back to Codes and Share button -->
+            <div class="flex justify-between items-center">
+              <NuxtLink
+                to="/codes"
+                class="text-emerald-500 dark:text-emerald-400 hover:underline"
+              >
+                {{ $i18n.locale === "kh" ? "ត្រឡប់ទៅកូដ" : "Back to Codes" }}
+              </NuxtLink>
 
-                        <!-- codeList Date -->
-                        <p class="text-gray-400 text-sm mb-4">{{ codeList.date }}</p>
-
-                        <!-- codeList Category -->
-                        <span class="bg-blue-500 text-white text-xs font-semibold py-1 px-2 rounded mb-4 inline-block">
-                            {{ codeList.category[$i18n.locale] }}
-                        </span>
-
-                        <!-- codeList Description -->
-                        <p class="text-gray-600 mb-6">
-                            {{ codeList.description[$i18n.locale] }}
-                        </p>
-
-                        <!-- Back to Codes Link -->
-                        <NuxtLink to="/codes" class="text-blue-500 hover:underline">
-                            {{ $i18n.locale === "kh" ? "ត្រឡប់ទៅកូដ" : "Back to Codes" }}
-                        </NuxtLink>
-                    </div>
-                </div>
-
-                <!-- Next and Previous Post Navigation -->
-                <div class="mt-8 flex justify-between">
-                    <NuxtLink v-if="previousPost" :to="`/codes/${previousPost.id}`"
-                        class="text-blue-500 hover:underline">
-                        &larr; {{ previousPost.title[$i18n.locale] }}
-                    </NuxtLink>
-
-                    <NuxtLink v-if="nextPost" :to="`/codes/${nextPost.id}`"
-                        class="text-blue-500 hover:underline ml-auto">
-                        {{ nextPost.title[$i18n.locale] }} &rarr;
-                    </NuxtLink>
-                </div>
+              <button
+                @click="openShareModal"
+                class="py-2 px-4 bg-emerald-500 text-white dark:bg-emerald-600 dark:hover:bg-emerald-500 rounded hover:bg-emerald-600 transition flex items-center"
+              >
+                <Icon name="mdi:share-variant" class="w-5 h-5 mr-2" />
+                {{ $t("share") }}
+              </button>
             </div>
-
-            <!-- Sidebar -->
-            <aside v-if="codeList" class="w-full lg:w-1/4">
-                <!-- Recent Posts -->
-                <div class="bg-white shadow-md rounded-lg p-6 mb-8">
-                    <h2 class="text-xl font-semibold mb-4">Recent Posts</h2>
-                    <ul>
-                        <li v-for="post in recentPosts" :key="post.id" class="mb-3">
-                            <NuxtLink :to="`/codes/${post.id}`" class="text-blue-500 hover:underline">
-                                {{ post.title[$i18n.locale] }}
-                            </NuxtLink>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Categories -->
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <h2 class="text-xl font-semibold mb-4">Categories</h2>
-                    <ul>
-                        <li v-for="category in categories" :key="category.id" class="mb-2">
-                            <NuxtLink :to="`/category/${category.id}`" class="text-blue-500 hover:underline">
-                                {{ category.name[$i18n.locale] }}
-                            </NuxtLink>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
+          </div>
         </div>
-    </section>
 
-    <!-- codeList Not Found -->
-    <!-- <section v-else>
-      <p class="text-center text-gray-600">codeList not found.</p>
-    </section> -->
+        <!-- Navigation Links for Previous and Next Post -->
+        <div class="mt-8 flex justify-between">
+          <NuxtLink
+            v-if="previousPost"
+            :to="`/codes/${previousPost.id}`"
+            class="flex items-center text-emerald-500 dark:text-emerald-400 hover:underline hover:text-yellow-500 dark:hover:text-yellow-400"
+          >
+            <img
+              :src="previousPost.image"
+              :alt="previousPost.title[$i18n.locale]"
+              class="w-20 h-16 object-cover rounded mr-2 hover:scale-125"
+            />
+            &larr; {{ previousPost.title[$i18n.locale] }}
+          </NuxtLink>
+          <NuxtLink
+            v-if="nextPost"
+            :to="`/codes/${nextPost.id}`"
+            class="flex items-center text-emerald-500 dark:text-emerald-400 hover:underline hover:text-yellow-500 dark:hover:text-yellow-400 ml-auto"
+          >
+            {{ nextPost.title[$i18n.locale] }} &rarr;
+            <img
+              :src="nextPost.image"
+              :alt="nextPost.title[$i18n.locale]"
+              class="w-20 h-16 object-cover rounded ml-2 hover:scale-125"
+            />
+          </NuxtLink>
+        </div>
+      </div>
+
+      <!-- Share Modal -->
+      <ShareModal
+        :show="showShareModal"
+        :title="codeList?.title[$i18n.locale]"
+        :platforms="sharePlatforms"
+        :closeModal="closeShareModal"
+      />
+
+      <!-- Sidebar -->
+      <aside v-if="codeList" class="w-full lg:w-1/4">
+        <div class="bg-white dark:bg-slate-800 border-solid border-2 border-emerald-100 p-6 mb-8 rounded-lg shadow">
+          <h2
+            class="text-xl font-semibold border-l-2 border-emerald-500 mb-4 pl-4 text-gray-900 dark:text-gray-100"
+          >
+            {{ $t("recent_posts") }}
+          </h2>
+          <ul>
+            <li
+              v-for="post in recentPosts"
+              :key="post.id"
+              class="mb-3 flex items-center"
+            >
+              <img
+                :src="post.image"
+                :alt="post.title[$i18n.locale]"
+                class="w-20 h-16 object-cover rounded mr-3 hover:scale-125"
+              />
+              <NuxtLink
+                :to="`/codes/${post.id}`"
+                class="text-gray-900 dark:text-gray-100 hover:underline hover:text-yellow-500 dark:hover:text-yellow-400"
+              >
+                {{ post.title[$i18n.locale] }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
 </template>
 
-<script setup>
-import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+<script setup="ts">
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 import { listCodes } from "~/store/code/listCode";
+import ShareModal from "../ShareModal/ShareModal.vue";
 
-// Define props to receive data
+// Props
 const props = defineProps({
-    codeList: Object,
-    previousPost: Object,
-    nextPost: Object,
-    recentPosts: Array,
-    categories: Array,
+  codeList: {
+    type: Object,
+    required: true,
+    default: () => ({}),
+  },
+  previousPost: Object,
+  nextPost: Object,
+  recentPosts: Array,
+  categories: Array,
 });
 
-// Get current post ID from route parameters
-const route = useRoute();
-const currentPostId = Number(route.params.id); // Assuming your route has a parameter named 'id'
+// Reactive references
+const showShareModal = ref(false);
 
-// Reactive reference to codes
+// List of share platforms
+const sharePlatforms = [
+  { key: "facebook", name: "Facebook", icon: "mdi:facebook", color: "#1877F2" }, // Facebook blue
+  { key: "telegram", name: "Telegram", icon: "mdi:telegram", color: "#0088CC" }, // Telegram blue
+  { key: "twitter", name: "Twitter", icon: "mdi:twitter", color: "#1DA1F2" }, // Twitter blue
+  { key: "linkedin", name: "LinkedIn", icon: "mdi:linkedin", color: "#0A66C2" }, // LinkedIn blue
+  { key: "whatsapp", name: "WhatsApp", icon: "mdi:whatsapp", color: "#25D366" }, // WhatsApp green
+  {
+    key: "pinterest",
+    name: "Pinterest",
+    icon: "mdi:pinterest",
+    color: "#E60023",
+  }, // Pinterest red
+  { key: "reddit", name: "Reddit", icon: "mdi:reddit", color: "#FF4500" }, // Reddit orange
+  { key: "email", name: "Email", icon: "mdi:email", color: "#D44638" }, // Email red
+];
+
+// Route and post management
+const route = useRoute();
+const currentPostId = Number(route.params.id);
 const codes = ref(listCodes);
 
-// Computed properties for the current post, previous post, and next post
-const currentPost = computed(() => codes.value.find(post => post.id === currentPostId));
+const getRecentPosts = () => {
+  return codes.value.filter((post) => post.id !== currentPostId).slice(0, 5);
+};
+
+const recentPosts = computed(() => getRecentPosts());
+const currentPost = computed(() =>
+  codes.value.find((post) => post.id === currentPostId)
+);
 const previousPost = computed(() => {
-    const currentIndex = codes.value.findIndex(post => post.id === currentPostId);
-    return currentIndex > 0 ? codes.value[currentIndex - 1] : null;
+  const currentIndex = codes.value.findIndex(
+    (post) => post.id === currentPostId
+  );
+  return currentIndex > 0 ? codes.value[currentIndex - 1] : null;
 });
 const nextPost = computed(() => {
-    const currentIndex = codes.value.findIndex(post => post.id === currentPostId);
-    return currentIndex < codes.value.length - 1 ? codes.value[currentIndex + 1] : null;
+  const currentIndex = codes.value.findIndex(
+    (post) => post.id === currentPostId
+  );
+  return currentIndex < codes.value.length - 1
+    ? codes.value[currentIndex + 1]
+    : null;
 });
+
+// Share modal controls
+const openShareModal = () => {
+  showShareModal.value = true;
+};
+
+const closeShareModal = () => {
+  showShareModal.value = false;
+};
 </script>
-
-<style scoped>
-/* Add hover scale for better interaction */
-.hover\:scale-105 {
-    transition: transform 0.3s ease-in-out;
-}
-
-.hover\:underline {
-    transition: color 0.3s ease-in-out;
-}
-
-/* Smooth image hover scaling */
-img:hover {
-    transform: scale(1.1);
-}
-
-/* Add smooth shadow effect */
-.shadow-md {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-</style>
-
-

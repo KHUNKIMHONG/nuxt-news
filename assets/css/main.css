@@ -3,26 +3,46 @@
 @tailwind utilities;
 
 @layer base {
+  /* Custom selection color */
+  ::selection {
+    background-color: theme("colors.emerald.500");
+    color: white;
+  }
 
+  ::-moz-selection {
+    background-color: theme("colors.emerald.500");
+    color: white;
+  }
+
+  /* Font definitions */
   @font-face {
-    font-family: 'Moulpali';
-    src: url('/assets/fonts/Moulpali/Moulpali-Regular.ttf') format('truetype');
+    font-family: "Moulpali";
+    src: url("/assets/fonts/Moulpali/Moulpali-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Montserrat';
-    src: url('/assets/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-family: "Battambang";
+    src: url("/assets/fonts/battambong/Battambang-Regular.ttf")
+      format("truetype");
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
-    font-family: 'Exo_2';
-    src: url('/assets/fonts/Exo_2/static/Exo2-Regular.ttf') format('truetype');
+    font-family: "Roboto_Slab";
+    src: url("/assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf")
+      format("truetype");
     font-weight: normal;
     font-style: normal;
+  }
+
+  /* Smooth text rendering across browsers */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   /* Heading styles */
@@ -45,23 +65,47 @@
     @apply text-xs font-medium text-slate-900 dark:text-white;
   }
 
-  /* Responsive utilities for headings */
+  /* Responsive heading styles */
   @screen sm {
-    h1 { @apply text-3xl; }
-    h2 { @apply text-2xl; }
-    h3 { @apply text-xl; }
-    h4 { @apply text-lg; }
-    h5 { @apply text-base; }
-    h6 { @apply text-sm; }
+    h1 {
+      @apply text-3xl;
+    }
+    h2 {
+      @apply text-2xl;
+    }
+    h3 {
+      @apply text-xl;
+    }
+    h4 {
+      @apply text-lg;
+    }
+    h5 {
+      @apply text-base;
+    }
+    h6 {
+      @apply text-sm;
+    }
   }
 
   @screen md {
-    h1 { @apply text-4xl; }
-    h2 { @apply text-3xl; }
-    h3 { @apply text-2xl; }
-    h4 { @apply text-xl; }
-    h5 { @apply text-lg; }
-    h6 { @apply text-base; }
+    h1 {
+      @apply text-4xl;
+    }
+    h2 {
+      @apply text-3xl;
+    }
+    h3 {
+      @apply text-2xl;
+    }
+    h4 {
+      @apply text-xl;
+    }
+    h5 {
+      @apply text-lg;
+    }
+    h6 {
+      @apply text-base;
+    }
   }
 
   /* Global text and layout for responsive devices */
@@ -70,71 +114,86 @@
   }
 
   @screen sm {
-    p { @apply text-base; }
+    p {
+      @apply text-base;
+    }
   }
 
   a {
     @apply no-underline;
   }
 
-  ul, ol {
-    @apply pl-4;
-  }
-
-  @screen sm {
-    ul, ol { @apply pl-5; }
-  }
-
   body {
-    @apply bg-white dark:bg-slate-800 font-enlish;
+    @apply bg-white dark:bg-slate-900 font-Roboto_Slab;
   }
 
   button {
     @apply px-3 py-2;
-  }  
+  }
 
   @screen sm {
-    button { @apply px-4; }
+    button {
+      @apply px-4;
+    }
   }
 
   /* Dropdown Menu Styling */
-.dropdown-menu {
-  @apply absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-30;
-}
+  .dropdown-menu {
+    @apply absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-30;
+  }
 
-/* Dropdown Menu Link Styling */
-.dropdown-link {
-  @apply block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 no-underline rounded-md transition-colors duration-200;
-}
-.nav-link {
-  @apply no-underline transition duration-200 px-4 py-2 rounded-md;
-}
+  /* Dropdown Menu Link Styling */
+  .dropdown-link {
+    @apply block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 no-underline rounded-md transition-colors duration-200;
+  }
 
-/* Custom Scrollbar Styles for Horizontal Scrolling */
-.scrollable {
-  overflow-y: auto; /* Enable horizontal scrolling */
+  /* main.css or another global stylesheet */
+  .dropdown-custom {
+    @apply bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-lg;
+  }
+
+  .dropdown-custom option {
+    @apply bg-white text-gray-900 dark:bg-slate-800 dark:text-gray-200;
+  }
+
+  .dropdown-custom option:hover {
+    /* Use the emerald-600 color for the hover background */
+    @apply bg-emerald-400 /* Tailwind's emerald-600 color */
+  }
+
+  .nav-link {
+    @apply no-underline transition duration-200 px-4 py-2 rounded-md;
+  }
+
+  /* Custom Scrollbar Styles for Horizontal Scrolling */
+  .scrollable {
+    overflow-y: auto;
+  }
+
+  /* For Firefox */
+  .scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: red transparent;
+  }
+
+  /* For WebKit browsers */
+  .scrollable::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .scrollable::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 10px;
+  }
+
+  .scrollable::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Tailwind-inspired hover effect for <select> */
+  /* .select-custom:hover,
+.select-custom:focus {
+  @apply bg-emerald-100 text-emerald-700; 
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+} */
 }
-
-/* For Firefox */
-.scrollable {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: red transparent; /* Thumb color and track color */
-}
-
-/* For WebKit browsers */
-.scrollable::-webkit-scrollbar {
-  height: 8px; /* Height of the horizontal scrollbar */
-}
-
-.scrollable::-webkit-scrollbar-thumb {
-  background-color: red; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Round edges for the thumb */
-}
-
-.scrollable::-webkit-scrollbar-track {
-  background: transparent; /* Background color of the track */
-}
-
-}
-
-

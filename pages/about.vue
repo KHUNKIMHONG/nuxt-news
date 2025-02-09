@@ -1,6 +1,14 @@
 <template>
   <div>
     <Header />
+    <PageTitle
+      :title="$i18n.locale === 'en' ? 'ABOUT ME' : 'អំពីខ្ញុំ'"
+      :subtitle="
+        $i18n.locale === 'en'
+          ? 'Learn more about me and my journey'
+          : 'ស្វែងយល់អំពីខ្ញុំ និងការធ្វើដំណើររបស់ខ្ញុំ'
+      "
+    />
     <About />
     <Footer />
   </div>

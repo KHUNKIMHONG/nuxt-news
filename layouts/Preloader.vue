@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="isLoading"
-    class="fixed inset-0 bg-blue-500 flex items-center justify-center z-50"
+    class="fixed inset-0 bg-emerald-500 flex items-center justify-center z-50"
   >
     <div class="loader">
       <div class="item item-1"></div>

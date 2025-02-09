@@ -2,9 +2,9 @@
   <button
     v-show="isVisible"
     @click="scrollToTop"
-    class="fixed bottom-4 right-4 bg-white z-40 p-2 rounded-md shadow-lg ring-2 ring-yellow-700 transition duration-300 ease-in-out hover:bg-yellow-600"
+    class="fixed bottom-4 right-4 bg-emerald-800 z-40 p-2 rounded-md shadow-lg ring-2 ring-white transition duration-300 ease-in-out hover:bg-yellow-600"
   >
-    <Icon name="mdi-arrow-up" size="20" class="text-black transition-transform duration-300 ease-in-out hover:scale-125" />
+    <Icon name="mdi-arrow-up" size="20" class="text-white transition-transform duration-300 ease-in-out hover:scale-125" />
   </button>
 </template>
 

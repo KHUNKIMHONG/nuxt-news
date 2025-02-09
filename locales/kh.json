@@ -1,10 +1,14 @@
 {
+  "home": "ទំព័រដើម",
   "login": "ចូលគណនី",
   "register": "ចុះឈ្មោះ",
+  "contact_us": "ទាក់ទងមកយើងខ្ញុំ",
+  "submit": "បញ្ជូន",
+  "share": "ចែករំលែក",
+  "recent_posts": "ប្រកាសថ្មីៗ",
   "footer": {
     "content": {
       "content": "មាតិកា",
-      "home": "ទំព័រមុខ",
       "products": "ផលិតផល",
       "information": "ព័ត៏មាន",
       "pricing": "តម្លៃ",
@@ -21,7 +25,7 @@
       "api": "API",
       "job": "ការងារ",
       "sell_your_content": "លក់មាតិការបស់អ្នក",
-      "tola_post_guidelines": "គោលការណ៍ណែនាំ Tola Post",
+      "tola_post_guidelines": "គោលការណ៍ណែនាំ Tola Post"
     },
     "legal": {
       "legal": "ផ្លូវច្បាប់",
@@ -30,23 +34,32 @@
       "privacy_policy": "គោលការណ៍ឯកជនភាព",
       "copyright_information": "ព័ត៌មានរក្សាសិទ្ធិ",
       "cookies_policy": "គោលការណ៍ Cookies",
-      "cookies_settings": "ការកំណត់ Cookies",
+      "cookies_settings": "ការកំណត់ Cookies"
     },
-    "suppourt": {
-      "suppourt": "គាំទ្រ",
-      "faq": "សំណួរគេសួរញឹកញាប់ិ៍",
+    "support": {
+      "support": "គាំទ្រ",
+      "faq": "សំណួរគេសួរញឹកញាប់",
       "search_guide": "មគ្គុទ្ទេសក៍ស្វែងរក",
-      "contact": "ទំនាក់ទំនង",
+      "contact": "ទំនាក់ទំនង"
     },
     "social_media": {
       "social_media": "ប្រព័ន្ធផ្សព្វផ្សាយសង្គម",
-      "get": "ទទួលបានទ្រព្យសម្បត្តិផ្តាច់មុខដែលផ្ញើដោយផ្ទាល់ទៅប្រអប់សំបុត្ររបស់អ្នក។",
+      "get": "ទទួលបានទ្រព្យសម្បត្តិផ្តាច់មុខដែលផ្ញើដោយផ្ទាល់ទៅប្រអប់សំបុត្ររបស់អ្នក។"
     },
     "copyright": {
       "copyright": "រក្សាសិទ្ធិ",
       "tola_post": "ទន្លេប៉ុស្តិ៍",
-      "all": "ទាំងអស់រក្សាសិទ្ធិ។",
+      "all": "ទាំងអស់រក្សាសិទ្ធិ។"
     }
+  },
+  "contact": {
+    "title": "ព័ត៌មានទំនាក់ទំនង",
+    "subtitle": "ទាក់ទងមកយើងខ្ញុំសម្រាប់សំណួរ ឬជំនួយ",
+    "addressTitle": "អាសយដ្ឋានរបស់យើងខ្ញុំ",
+    "address": "2464 ផ្លូវរ៉ូយ៉ាល់ ស្រុក Mesa រដ្ឋ New Jersey 45463",
+    "emailTitle": "អ៊ីមែលមកកាន់យើងខ្ញុំ",
+    "email": "hello",
+    "phoneTitle": "ទូរស័ព្ទមកយើងខ្ញុំ",
+    "phone": "+391 (0)35 2568 4593"
   }
-
 }

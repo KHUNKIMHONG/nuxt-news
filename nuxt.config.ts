@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -7,7 +6,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'TONLE POST',
+      title: 'Portfolio KHUN KIMHONG',
       htmlAttrs: {
         lang: "kh"
       },
@@ -18,7 +17,7 @@ export default defineNuxtConfig({
         { 
           rel: 'icon', 
           type: 'image/x-icon', 
-          href: '/tonle-rm.png' 
+          href: '/logo/ownPhoto.jpg' 
         },
       ],      
     }
@@ -48,11 +47,12 @@ export default defineNuxtConfig({
     { src: '~/plugins/alpine.js', mode: 'client' }
   ],
 
-  modules: [
+  modules: [ // Use modules instead of buildModules
     '@nuxt/icon',
     '@pinia/nuxt',
-    '@nuxtjs/i18n', 
+    '@nuxtjs/i18n', // Make sure this is inside modules
   ],
+  //i18n for kh and en langduage
   i18n: {
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },

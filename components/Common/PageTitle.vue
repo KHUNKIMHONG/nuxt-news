@@ -1,75 +1,35 @@
 <template>
-  <section class="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 animate-gradient py-16 px-4 md:px-12 lg:px-24">
-    <div class="container mx-auto">
-      <!-- Breadcrumbs -->
-      <!-- <nav class="text-white mb-6">
-        <ul class="flex space-x-4 text-lg md:text-xl">
-          <li>
-            <NuxtLink to="/" class="hover:underline">Home</NuxtLink>
-          </li>
-          <li>&gt;</li>
-          <li>
-            <NuxtLink :to="breadcrumbLink" class="hover:underline">
-              {{ breadcrumb }}
-            </NuxtLink>
-          </li>
-        </ul>
-      </nav> -->
+  <client-only>
+    <section class="bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-700 py-24 px-8 md:px-20 lg:px-36 relative overflow-hidden">
+      <div class="container mx-auto text-center md:text-left space-y-8 relative z-10">
+        
+        <!-- Page Title -->
+        <h1 class="font-extrabold text-4xl md:text-5xl lg:text-6xl text-white dark:text-gray-100 tracking-wide md:tracking-widest relative">
+          {{ title }}
+        </h1>
+        
+        <!-- Divider Line -->
+        <div class="mx-auto md:mx-0 w-24 h-1 bg-yellow-400 dark:bg-yellow-500 my-2"></div>
 
-      <!-- Page Title -->
-      <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight tracking-wider">
-        {{ title }}
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="text-white text-lg md:text-xl mt-6 opacity-90">
-        {{ subtitle }}
-      </p>
-    </div>
-  </section>
+        <!-- Subtitle -->
+        <p class="text-white dark:text-gray-300 text-base md:text-lg lg:text-xl opacity-90 max-w-3xl mx-auto md:mx-0 mt-6 animate-fadeIn">
+          {{ subtitle }}
+        </p>
+      </div>
+    </section>
+  </client-only>
 </template>
 
-<style scoped>
-/* Adjustments to enhance text appearance */
-.text-white {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a subtle shadow for better readability */
-}
-
-/* Responsive font sizes */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 4rem; /* Larger font size for bigger screens */
-  }
-}
-
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 5rem; /* Even larger for larger screens */
-  }
-}
-</style>
-
-  
 <script setup>
-  defineProps({
-    title: {
-      type: String,
-      required: true
-    },
-    subtitle: {
-      type: String,
-      default: ''
-    },
-    breadcrumb: {
-      type: String,
-      default: ''
-    },
-    breadcrumbLink: {
-      type: String,
-      default: '/'
-    }
-  });
+defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  subtitle: {
+    type: String,
+    default: ''
+  }
+});
 
 </script>
-
-  

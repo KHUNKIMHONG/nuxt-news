@@ -1,51 +1,67 @@
 {
+  "home": "Home",
   "login": "Login",
   "register": "Register",
+  "contact_us": "Contact with us",
+  "submit": "Submit",
+  "share": "Share",
+  "recent_posts": "Recent Posts",
   "footer": {
     "content": {
       "content": "Content",
-      "home": "Home",
       "products": "Products",
-      "information": "INFORMATION",
+      "information": "Information",
       "pricing": "Pricing",
-      "legal": "LEGAL",
+      "legal": "Legal",
       "terms": "Terms of use",
-      "support": "SUPPORT",
+      "support": "Support",
       "faq": "FAQ",
-      "socialMedia": "SOCIAL MEDIA"
+      "socialMedia": "Social Media"
     },
     "information": {
-      "information": "INFORMATION",
+      "information": "Information",
       "pricing": "Pricing",
-      "products": "products",
+      "products": "Products",
       "api": "API",
       "job": "Jobs",
       "sell_your_content": "Sell your content",
-      "tola_post_guidelines": "Tola Post guidelines",
+      "tola_post_guidelines": "Tola Post guidelines"
     },
     "legal": {
-      "legal": "LEGAL",
-      "term_of_use": "Term of use",
+      "legal": "Legal",
+      "term_of_use": "Terms of use",
       "license_agreement": "License agreement",
       "privacy_policy": "Privacy policy",
       "copyright_information": "Copyright information",
       "cookies_policy": "Cookies policy",
-      "cookies_settings": "Cookies Settings",
+      "cookies_settings": "Cookies settings"
     },
-    "suppourt": {
-      "suppourt": "Suppourt",
+    "support": {
+      "support": "Support",
       "faq": "FAQ",
       "search_guide": "Search guide",
-      "contact": "Contact",
+      "contact": "Contact"
     },
     "social_media": {
-      "social_media": "SOCIAL MEDIA",
-      "get": "Get exclusive assets sent straight to your inbox.",
+      "social_media": "Social Media",
+      "get": "Get exclusive assets sent straight to your inbox."
     },
     "copyright": {
-      "copyright": "Copyright",
       "tola_post": "Tola Post",
       "all": "All rights reserved.",
-    },
-  }
+    }
+  },
+  "contact": {
+    "title": "Contact Information",
+    "subtitle": "Get in touch with us for any queries or support",
+    "addressTitle": "Our Address",
+    "address": "2464 Royal Ln. Mesa, New Jersey 45463",
+    "emailTitle": "Email Us",
+    "email": "hello",
+    "phoneTitle": "Call Us",
+    "phone": "+391 (0)35 2568 4593",
+  },
 }
+
+
+

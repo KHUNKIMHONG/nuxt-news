@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Top />
     <Header />
     <Banner />
     <Links />
@@ -7,7 +8,6 @@
     <News />
     <Poster />
     <ListCode />
-    <FQA />
     <Footer />
   </div>
 </template>
